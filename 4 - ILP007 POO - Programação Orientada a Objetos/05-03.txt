@@ -1,0 +1,95 @@
+===========CONSTRUTORES
+métodos que permitem a inicialização dos objetos (instância de alguma classe)
+
+quando você dá new vc tá chamando o construtor. 
+
+toda classe possui construtor, mesmo se eu não declarar, o compilador cria sozinho que não receba nenhum parâmetro e sem código, mas cria um construtor. E o codificador de acesso é o mesmo da classe.
+
+toda vez que um objeto é criado, PELO MENOS um construtor é executado.
+
+construtor não pode ser abstract nem final, nem static. 
+
+Ele não retorna nada, nem void, nem nada. 
+
+Deve ter o mesmo nome da classe.
+
+Não pode ter dois VARARGS na mesma função.
+
+
+dá pra ter dois construtores. no caso, um poderia ser sem parâmetros e outro com parâmetros.
+nesse caso, o construtor sem parametros chama o com parametros e passa o resultado.
+
+Na verdade, posso ter vários construtores. Cada um com um tipo de dado ou com quantidades diferentes de parametros. Só não posso ter dois construtores com o mesmo tipo e número de parâmetros. O sistema reconhece e executa o construtor automaticamente a depender do tipo e quantidade de parametro que foi passado na criação do objeto.
+
+REGRAS:
+super() ou this() tem que estar na PRIMEIRA linha do construtor. Quando não tem, o compilador coloca automaticamente.
+
+
+
+==============DEPENDENCIAS
+
+são 2 tipos de acessos:
+herança (uma classe é um tipo de outra classe. ferrari é um carro)
+associação (agregação ou composição - qndo uma classe contem uma instância de outra classe - carro tem rodas)
+
+===============COMPOSIÇÃO
+qndo possui uma variável do tipo de outra classe. se a mãe morre, o filho morre tb, os agregados morrem tb. 
+para que exista composição, a classe tem que ser conhecida apenas por uma outra única classe.
+
+================AGREGAÇÃO
+permite que o conteúdo do elemento que tá sofrendo agregação possa ser compartilhado. alguém de fora consegue colocar um elemento na agregação. pode ser uma variável estática ou não, de instancia ou local.
+
+
+se tiver acesso de fora para uma classe instanciada, é uma agregação
+
+se não tiver nenhum método além da classe que está instanciando que pegue dados dela, ela é composição.
+
+===============HERANÇA
+tudo aquilo que não for privado é transmitido por herança. Salvo o que tiver marcado como package também. 
+class nome extends superclass
+
+quando não tem extends, a classe SEMPRE herda do OBJECT (isso acontece com toda e qqr classe criada, mesmo que não tenha extend nenhum)
+
+não é possível herdar várias classes no java
+
+se a classe não estiver acessível no mesmo package, nada será herdado 
+
+
+acesso DIRETO é quando ocorre um método chamando outro na mesma classe. 
+
+acesso INDIRETO é quando ocorre um método chamando outro por herança, que não está exatamente na mesma classe.
+
+acesso por REFERÊNCIA é quando você cria uma variável com uma instancia de uma classe que invoca um método que tem na classe instanciada. 
+
+NÃO HÁ HERANÇA DE CONSTRUTOR!!!!
+
+mas os construtores das filhas invocam os construtores das classes superiores
+se eu não colocar um super(). o compilador coloca pra mim automaticamente. Ou seja, o construtor filho chama o construtor pai e depois o resto dele é executado.
+
+
+====================POLIMORFISMO
+uma instancia de uma classe pode passar por uma instancia de outra classe
+
+SOBRESCRITA
+quando uma classe filha reescreve o método com a mesma assinatura da herdada da classe pai. Ou seja, o método é o mesmo, porém o comportamento da filha será diferente da do pai.
+
+regras:
+- o retorno tem que ser do mesmo tipo ou do subtipo
+- não pode haver redução da visibilidade
+- métodos final ou static não podem ser sobrescritos
+- um método só pode ser sobrescrito se a subclasse conseguir acessálo
+- não pode colocar try catch se o original não tiver. nullpointerexception
+
+PRINCÍPIO DE LISKOV
+se uma classe herda da outra, ela sabe fazer tudo da outra.
+
+SOBRECARGA
+permite criar métodos com o mesmo nome porém com parâmetros diferentes.
+dependendo do tipo e parametros, a jvm escolhe qual usar.
+
+
+
+
+
+
+

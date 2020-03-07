@@ -1,0 +1,127 @@
+ROBSON HENRIQUE FERREIRA
+AULA DIA 02/03/2012
+
+PRATICA 1:
+aluno@aluno-desktop:~$ pwd
+/home/aluno
+
+PRATICA 2:
+aluno@aluno-desktop:~$ ls
+Desktop    Downloads         Music     Public     Videos
+Documents  examples.desktop  Pictures  Templates
+aluno@aluno-desktop:~$ ls -l
+total 36
+drwxr-xr-x 2 aluno aluno 4096 2012-09-25 13:06 Desktop
+drwxr-xr-x 2 aluno aluno 4096 2012-09-19 16:28 Documents
+drwxr-xr-x 2 aluno aluno 4096 2012-09-19 16:28 Downloads
+-rw-r--r-- 1 aluno aluno  167 2012-09-19 16:23 examples.desktop
+drwxr-xr-x 2 aluno aluno 4096 2012-09-19 16:28 Music
+drwxr-xr-x 2 aluno aluno 4096 2012-09-19 16:28 Pictures
+drwxr-xr-x 2 aluno aluno 4096 2012-09-19 16:28 Public
+drwxr-xr-x 2 aluno aluno 4096 2012-09-19 16:28 Templates
+drwxr-xr-x 2 aluno aluno 4096 2012-09-19 16:28 Vide
+
+Os arquivos exibidos são diretórios que estão dentro da minha pasta de usuário, menos o examples.desktop que não é um diretório e é o único mapeado apenas uma vez. Todos os outros (diretórios) são mapeados 2 vezes. O código inicial, à esquerda, mostra as permissões para o dono e grupo. A seguir, mostra o nome do usuário e do grupo aos quais o arquivo pertence. Tamanho e data e hora de criação.
+
+PRATICA 3:
+aluno@aluno-desktop:~$ cd Desktop
+aluno@aluno-desktop:~/Desktop$ 
+aluno@aluno-desktop:~/Desktop$ cd ..
+aluno@aluno-desktop:~$ 
+
+PRATICA 4:
+aluno@aluno-desktop:~$ cd ..
+aluno@aluno-desktop:/home$ cd ..
+aluno@aluno-desktop:/$ c
+aluno@aluno-desktop:/$ cd home
+aluno@aluno-desktop:/home$ cd aluno
+aluno@aluno-desktop
+
+PRATICA 5:
+aluno@aluno-desktop:~$ mkdir ComandosArquivos
+aluno@aluno-desktop:~$ mkdir ComandosDiretorio
+aluno@aluno-desktop:~$ mkdir ComandosNavegacao
+aluno@aluno-desktop:~$ ls
+ComandosArquivos   Desktop    examples.desktop  Public
+ComandosDiretorio  Documents  Music             Templates
+ComandosNavegacao  Downloads  Pictures          Videos
+aluno@aluno-desktop:~$ 
+
+
+PRATICA 6:
+aluno@aluno-desktop:~$ ls
+ComandosArquivos   Desktop     Documents         Music     Templates
+ComandosDiretorio  documento1  Downloads         Pictures  Videos
+ComandosNavegacao  documento2  examples.desktop  Public
+
+
+PRATICA 7:
+aluno@aluno-desktop:~$ cat documento1 documento2 > documento3
+aluno@aluno-desktop:~$ ls
+ComandosArquivos   Desktop     documento3  examples.desktop  Public
+ComandosDiretorio  documento1  Documents   Music             Templates
+ComandosNavegacao  documento2  Downloads   Pictures          Vid
+
+PRATICA 8:
+aluno@aluno-desktop:~$ mkdir Aula1
+aluno@aluno-desktop:~$ cp documento1 Aula1/
+aluno@aluno-desktop:~$ ls
+Aula1              Desktop     Documents         Pictures
+ComandosArquivos   documento1  Downloads         Public
+ComandosDiretorio  documento2  examples.desktop  Templates
+ComandosNavegacao  documento3  Music             Videos
+aluno@aluno-desktop:~$ cd Aula1
+aluno@aluno-desktop:~/Aula1$ ls
+documento1
+
+
+PRATICA 9:
+aluno@aluno-desktop:~/Aula1$ ls
+documento1
+aluno@aluno-desktop:~/Aula1$ rm documento1
+aluno@aluno-desktop:~/Aula1$ ls
+aluno@aluno-desktop:~/Aula1$ 
+
+
+
+PRATICA 10:
+aluno@aluno-desktop:~$ mv ComandosArquivos Aula1/
+aluno@aluno-desktop:~$ mv documento2 Aula1/ComandosArquivos/
+aluno@aluno-desktop:~$ cd Aula1
+aluno@aluno-desktop:~/Aula1$ ls
+ComandosArquivos
+aluno@aluno-desktop:~/Aula1$ cd ComandosArquivos
+aluno@aluno-desktop:~/Aula1/ComandosArquivos$ ls
+documento2
+
+PRATICA 11:
+aluno@aluno-desktop:~$ dd if=/home/aluno of=/tmp/arquivo.iso
+dd: reading `/home/aluno': Is a directory
+0+0 records in
+0+0 records out
+0 bytes (0 B) copied, 0.000702733 s, 0.0 kB/s
+aluno@aluno-desktop:~$ 
+
+
+PRATICA 12:
+aluno@aluno-desktop:~$ ls
+Aula1              Desktop     Documents         Music     Templates
+ComandosDiretorio  documento1  Downloads         Pictures  Videos
+ComandosNavegacao  documento3  examples.desktop  Public
+aluno@aluno-desktop:~$ file documento1
+documento1: ASCII text
+aluno@aluno-desktop:~$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

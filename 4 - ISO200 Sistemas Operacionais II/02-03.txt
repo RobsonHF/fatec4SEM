@@ -1,0 +1,126 @@
+rede: \\10.68.76.4
+aluno
+123456
+
+O MELHOR LIVRO DO LINUX ESTÁ NO DIRETÓRIO DO PROFESSOR.
+
+é bom eu estudar "complexidade algorítima" que é o esforço do computador em executar o algorítmo
+
+criar automaticamente uma virtual de prova2.ova
+
+
+\tmp (todos podem fazer tudo nesse diretório e tudo apaga qndo desliga a máquina)
+\etc (só adm podem)
+
+o que trás segurança no mundo linux é justamente a organização do sistema de arquivos. E o controle de usuários.
+
+
+==== o shell
+é um programa que starta e com ele eu consigo executar comandos que estão um nível abaixo.
+consigo manipular esses processos.
+
+=========pwd - comando de navegação
+é um comando que eu consigo saber exatamente onde estou.
+a melhor forma de dar manutenção em um linux é um terminal. 
+pwd imprime o diretório onde estou.
+
+
+==== arquivos
+TUDO no linux é ARQUIVO. seu hd é arquivo, seu pen drive é arquivo, um arquivo é um arquivo, tudo que existe na face do sistema é um arquivo. teclado é um arquivo.
+
+por isso eu consigo manipular e compreender esses arquivos. Basta eu saber onde estão.
+
+========= ls -l
+e um comando para ver todos os arquivos atuais ali mais básicos.
+mostra um código antes:
+
+d = é um diretório
+r = read o dono pode ler
+w = write o dono pode escrever
+x = executar
+ (seria para executar. se ´em traço não pode executar)
+_  _ _ _  _ _ _  _ _ _  x
+   DONO    GRUPO   
+
+
+dono é quem criou. o grupo é quem?
+ 
+o x é um número. é o número de vezes que o arquivo está sendo mapeado. os diretórios estão com 2 pq estão sendo mapeados duas vezes. o 1 só é mapeado um. Quer dizer que ele ESTÁ em DOIS LUGARES.
+posso pegar um arquivo em um diretório e mapeá-lo em outro lugar
+
+depois do código vem:
+aluno aluno 
+(DONO) (GRUPO)
+
+é obrigatório para a existência de um usuário o GRUPO DEFAULT. um usuário pode ter muitos grupos, mas somente UM é default. quando o usuário cria um arquivo, esse arquivo pega como o grupo dele o grupo default. 
+
+No caso os dois são o mesmo (aluno aluno) porque o grupo criado automaticamente pelo sistema durante a instalação é o default. 
+
+===========i-node 
+é um superbloco dentro do meu sistema de arquivos. de códigos. quando eu coloco ls -li aparece um número na frente do código dos arquivos (de r w x ). Esse número é o código do i-node do arquivo. Por esse código eu posso LOCALIZAR o arquivo no DISCO. É como se fosse o endereço de mermória do arquivo. 
+
+
+
+============hard link
+teremos uma aula ainda sobre isso. é tipo uma cópia de um arquivo em vários lugares. 
+
+existe os links simbólicos (ATALHOS). São diferentes. o hard link é o próprio arquivo. Isso pode dar merda se duas pessoas ou mais forem alterar o arquivo ao mesmo tempo, pois ele pode ficar quebrado.
+ 
+
+============= cd
+
+call directory
+
+
+============ mkdir
+criação de diretório. onde eu posso criar diretório, onde eu tiver permissão. cd ~ (eu vou pro meu diretório onde eu posso criar diretório, lá eu posso.) no tmp tb posso pq vai excluir tudo.
+tem que lembrar de dar permissão.
+
+============== gedit
+é um editor de texto quando o mundo linux onde estou é gráfico.
+quando não é gráfico tem que usar nano. 
+
+gedit
+
+================== journalli????? o que é/???
+
+arquivo de log. explique mais.
+faz operações seriais em arquivos. (sequencial?) quando é marcado o nome do arquivo, ele cai numa fila e vai fazendo as alterações. 
+
+sempre que eu quero um método serial em um arquivo eu crio ARRAY (não lista)
+
+
+=================== concatenar, cat <arquivo1><arquivo2>...<arquivon>
+
+cat é o comando que eu vou comprimir para o boot. eu abro o arquivo para leitura. Eu nunca posso abrir um arquivo de somente ler com o parametro de também escrever. aumento a chance de corromper o arquivo. cat ANTES do NANO, SEMPRE. 
+
+quando eu acho o arquivo que eu quero dar manuntenção. faça uma cópia dele. agora eu abro com o nano ou com vi, altero e saio. se eu fiz merda, tenho um arquivo de backup para voltar. 
+
+/etc/passwd
+/etc/group
+/etc/fstab
+
+o cat é para concaternar aqquivos, então posso jogar texto de um arquivo em outro, ou juntar os dois arquivos em um terceiro arquivo. Uso isso por exemplo, quando eu preciso juntar os logs de cada etapa de um backup. Posso juntar todos esses logs para usar tudo de uma vez.
+
+==============cp
+cp eu copio o arquivo.
+posso copiar o arquivo com um nome diferente no mesmo diretório que ele tava. bom para fazer manutenção sem dar merda no arquivo. 
+
+dá pra copiar os dados do arquivo e tb os metadados (quem criou, quando criou etc)
+
+
+
+
+==================rm
+remover arquivos ou diretórios (que tb são arquivos rs)
+-r é recursivo, vai apagar TUDO da pasta e a própria pasta.
+
+/* apaga tudo do diretório mas mantém o diretório pq eu quero preservar as políticas de leitura e escrita do diretorio
+
+===============mv
+o linux não tem o renomear.
+uma das formas é mover o arquivo para o próprio diretório com outro nome. e apaga o antigo.
+
+================
+
+lá em /media/st-window está mapeado o windows do meu pc. se eu quiser mandar um arquivo de um lado pro outro, é por esse arquivo que faço isso

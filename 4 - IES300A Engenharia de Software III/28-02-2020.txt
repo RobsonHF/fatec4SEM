@@ -1,0 +1,101 @@
+DIP - Dependency Inversion Principle (sobre isso, cheguei atrasado e não entendi)
+
+
+class Reader {
+	public: virtual int Read() = 0;
+};
+class Writer
+{ 
+public: virtual void Write(char) = 0;
+};
+void Copy(Reader& r, Writer& w) { // qualquer reader que eu herdar da Reader vai estar aqui. Qqr whriter tb. 
+int c;
+while ((c=r.Read()) != EOF)
+w.Write(c); 
+}
+
+
+NÃO DEPENDA DE IMPLEMENTAÇÕES, E SIM DE ABSTRAÇÕES==================
+
+se precisar de manutenção, eu posso passar qqr filha, crio uma e passo. o copy não depende de mais ninguém. posso passar qqr filha pra ele.
+
+===================================================
+ESTUDAR INVERSÃO DE DEPENDENCIA - PRINCÍPIO (se quiser usar usa, se não não usa. Vai funfar da mesma maneira)
+é um padrão de projeto, que é usado nos frameworks. Vai ter aula de padrões e será explicado melhor.
+
+
+DEPENDENCIA EM JAVA ==========================
+import MySQLConnection;
+class PassowrdReminder {
+
+private dbConnection;
+
+public PasswordReminder(){
+this.dbConection = new MySQLConnection(); 
+}
+// faz qqr coisa aqui não importa
+}
+
+
+
+
+import MySQLConnection;
+class PassowrdReminder {
+
+private dbConnection;
+
+public PasswordReminder(DBConnectionInterface dbConnection){
+this.dbConection = dbConection; // (abstraiu) 
+}
+// faz qqr coisa aqui não importa
+}
+
+
+OOOOOOUU
+
+interface DBConnectionInterface {
+public void connect();
+}
+
+
+====================
+
+pelo o que eu to entendendo, esse princípio da inversão da dependência (DIP) é usado para que eu possa colocar qqr coisa e chamar blas mesmo mudando e panz. 
+
+
+- a classe PasswordReminder desconhece o BD
+- não está violando o DIP, pois está desacoplada e depende apenas de uma abstração.
+- Favorece a reusabilidade do código respeitando o SRP e o OCP.
+
+
+
+MÉTODOS ABSTRATOS E INTERFACE=============================================
+
+toda classe abstrata na mãe deve ser implementada na classe filho.
+
+PARA FAZER O DIP==========================================================
+
+Em uma classe que conhece outra classe abstrata (impressão conhece funcionário)
+primeiro, criar uma interface com os serviços que eu quero que ela faça. E dizer para que a classe ABSTRATA assinar o serviço da interface. 
+Depois, a classe primeira não conhece direto a funcionária, agora ela conhece o SERVIÇO do funcionário.
+
+comum -> abstarta (passo 1)
+Interface <- abstrata <- comum (passo 2)
+comum -> Interface <- abstrata 
+
+a comum agora não conhece mais a abstrata, MAS SIM UM SERVIÇO QUE ELA ASSINA!
+
+SÓ LEMBRANDO =========================================================
+os métodos da interface são TODOS VAZIOS, não têm corpo, apenas assinatura. são todos abstratos.
+
+
+DEPENDER DA ABSTRATÇÃO E NÃO DA IMPLEMENTAÇÃO!!!! 
+
+
+MAS QUE BOSTA É ACOPLAMENTO?
+
+
+fime tom cruise senha 
+
+
+NO DIP, HÁ A ABSTRAÇÃO QUNDO A ENTIDADE QUE VAI TENTAR FALAR DE ALGUMA OUTRA (IMPRESSÃO DE FUNCIONÁRIO EX) SEM MENCIONÁ-LA, MAS SIM MENCIONANDO O SERVIÇO (INTERFACE) QUE ELA ASSINA

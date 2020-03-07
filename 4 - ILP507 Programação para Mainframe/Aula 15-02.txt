@@ -1,0 +1,188 @@
+15/02 - AULA DE MAINFRAME - COBOL
+
+COLUNAS - 
+coluna 7 em branco - instrução normal ou hífen (pra continuação da linha de cima)
+coluna 8 - programa de vdd
+sempre escrever só a partir da coluna 8
+só vai até coluna 72. se passar dá erro.
+
+O ideal é que o nome do programa não ultrapasse 7 dígitos
+
+-> os editores já tem essa demarcação.
+
+cobol é dividido em 4 partes:
+
+- ID identification division
+APENAS IDENTIFICAR
+- ED environment division
+FAZER A RELÇÃO DO FISICO COM O LÓGICO
+- DD data divison
+
+- PD procedure division
+
+
+- Termial burro é um terminal simulador
+- usa hexadecimal
+
+gerenciador de arquivo
+- AO MANUSEAR O ARQUIVO: eu posso dar comandos de abrir, ler, fechar, buscar registro, deletar regristro, alterar registro
+- TODA VEZ QUE EU FIZER UM MANUSEIO DE ARQUIVO, TENHO QUE CONSULTAR O [[[FILE STATUS]]]
+
+
+- PARA ACESSAR OS ARQUIVOS E TABELAS, É NECESSÁRIO PASSAR PELO ISAM (QUE FUNCIONA COMO UM GERENCIADOR DE BANCO DE DADOS). PROGRAMA -> ISAM -> BANCO E CÓDIGO DE DEVOLUÇÃO. ele traz o registro como um todo, em bytes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====== EXEMPL DE PROGRAMA =====
+	IDENTIFICATION DIVISION.
+	PROGRAM-ID. CEP001.
+       *AUTHOR. GABRIEL ASSIS DE MORAES.
+       *************************************
+       * MANUTENCAO DO CADASTRO DE PRODUTO *
+       *************************************
+       *---------------------------------------------------------------
+        ENVIRONMENT DIVISION.
+	CONFIGURATION SECTION.
+	SPECIAL-NAMES.
+			DECIMAL-POINT IS COMMA.
+	INPUT-OUTPUT SECTION. 
+	FILE-CONTROL.
+	SELECT PRODUTO ASSIGN TO "PRODUTO.DAT"
+			ORGANIZATION IS INDEXED 
+			ACCESS MODE IS DYNAMIC
+			RECORD KEY IS CODPRO
+			FILE STATUS IS ST-ERRO
+			ALTERNATE RECORD KEY IS DESCR WITH DUPLICATES.
+       *
+       *----------------------------------------------------------------
+	DATA DIVISION.
+	FILE SECTION.
+	FD PRODUTO.
+
+	01 REGPRO.
+		03 CODPRO	PIC 9(06).
+		03 DESCR	PIC X(30).
+		03 UNID		PIC X(02).
+		03 QUANT	PIC 9(05)V9.
+		03 PRECMD	PIC 9(06)V999.
+
+
+       *
+       *------------------------------------------------------------------
+	WORKING-STORAGE SECTION. (((MEMÓRIA DO TRABALHO)))
+	01 MASC1	PIC ZZZ.ZZ9,99.
+	01 MASC2	PIC ZZZ.ZZ9,99. 
+	77 W-SEL	PIC 9(01) VALUE ZEROS. 
+	77 W-CONT	PIC 9(06) VALUE ZEROS.
+	77 W-OPCAO	PIC X(01) VALUE SPACES.
+	77 ST-ERRO	PIC X(02) VALUE "00".
+	77 W-ACT	PIC 9(02) VALUE ZEROS.
+
+
+
+====== EXEMPL DE PROGRAMA =====
+	IDENTIFICATION DIVISION.
+	PROGRAM-ID. CEP001.
+       *AUTHOR. GABRIEL ASSIS DE MORAES.
+       *************************************
+       * MANUTENCAO DO CADASTRO DE PRODUTO *
+       *************************************
+       *---------------------------------------------------------------
+        ENVIRONMENT DIVISION.
+	CONFIGURATION SECTION. (((nome da empresa)))
+	SPECIAL-NAMES. (((parametrizar algumas palavras)))
+			DECIMAL-POINT IS COMMA. (((converte o padrão americano para padrão brasileiro de . e ,)))
+	INPUT-OUTPUT SECTION. (((seção de entrada e saída. onde eu falo sobre meus arquivos (tabela) de dados. Impressora cobol é um arquivo de saída. leitura de cartão ou fita é um arquivo.)))
+	FILE-CONTROL.
+	SELECT PRODUTO ASSIGN TO "PRODUTO.DAT" (seleciona a variável dentro do programa "produto", e coloca o nome externo dele "PRODUTO.DAT"- pode ser o caminho tb)))
+			ORGANIZATION IS INDEXED (((indexa o pen drive ou outro))) 
+			ACCESS MODE IS DYNAMIC (((pode ser sequencial ou dinamico)))
+			RECORD KEY IS CODPRO (((chave primária)))
+			FILE STATUS IS ST-ERRO (((st-erro é o nome dado no programa apenas. Se o programa conseguir fazer a instrução dá um resultado, se não, dá outro. é uma resposta. Toda vez que mexer com arquivo eu vejo o file-status. VEM DOIS DÍGITOS - 00 [NÃO])))
+			ALTERNATE RECORD KEY IS DESCR WITH DUPLICATES. (((chave alternativa, pode ter 255)))
+       *
+       *----------------------------------------------------------------
+	DATA DIVISION.
+	FILE SECTION. (((ONDE EU GRAVO MEUS DADOS, ESTRUTURO. memória do arquivo)))
+	FD PRODUTO.
+
+	01 REGPRO. (((trás os dados para a variável que eu dei o nome de "REGPRO" no nível 01 - o mais profundo, o nível pai)))
+		03 CODPRO	PIC 9(06). (((03 seria o nível filho. são campos subdividids do REGPRO.)))
+		03 DESCR	PIC X(30). (ALFANUMÉRICO DE 30 POSIÇÕES)
+		03 UNID		PIC X(02).
+		03 QUANT	PIC 9(05)V9. (CAMPO NUMÉRICO DE 5 POSIÇÕES COM UM DECIMAL A MAIS) O V9 É UM DECIMAL APÓS VÍRGULA [[EX. 12345,6]]
+		03 PRECMD	PIC 9(06)V999. (NUMÉRICO DE 6 POSIÇÕES COM 3 NÚMEROS APÓS A VÍRGULA)
+		03 VRESTOQ	PIC X(02).
+		03 FUNCIONARIO	PIC 9(05)V9.
+		03 ALMOXARIFADO	PIC 9(06)V999.
+(((A SOMA DOS NÚMEROS DO REG PRO (ENTRE PARENTESES) DÁ 94. QUER DIZER QUE O MEU DADO REGPRO TEM 94 BYTES))) (((PIC == FORMATO. NESSAS ENDENTAÇÕES É PADRÃO TER APENAS NÚMEROS ÍMPARES. QUANTO MAIS ALTO O NÚMERO DA ENDENTAÇÃO, MENOR ELE ESTÁ NA ESTRUTURA, É UM DADO FILHO. O NOME DA VARIÁVEL NÃO IMPORTA MAS A [[ORDEM DAS VARIÁVEIS SIM]] PARA LER A ORDEM É IMPORTANTÍSSIMA.))) PIC. 9 == CAMPO NUMÉRICO; X == CAMPO ALFANUMÉRICO; A == ALFABÉTICO. O Tamanho máximo em uma variável é 16 bytes.
+       *
+       *------------------------------------------------------------------
+	WORKING-STORAGE SECTION. (((MEMÓRIA DO TRABALHO)))
+	01 MASC1	PIC ZZZ.ZZ9,99. (((01 pode ser campo pai e ter filhos))) (((z == zero supress, ou pode usar tb o # ou *. Suprime o zero à esquerda. só mostra os números à direita. só suprime zero)))
+	01 MASC2	PIC ZZZ.ZZ9,99. 
+	77 W-SEL	PIC 9(01) VALUE ZEROS. (((77 == campo sem divisão, não pode ter campo filho)))
+	77 W-CONT	PIC 9(06) VALUE ZEROS.
+	77 W-OPCAO	PIC X(01) VALUE SPACES.
+	77 ST-ERRO	PIC X(02) VALUE "00".
+	77 W-ACT	PIC 9(02) VALUE ZEROS.
+	77 MENS		PIC X(50) VALUE SPACES.
+	77 LIMPA	PIC X(50) VALUE SPACES.
+
+       *-----------------------------------------------------------------------
+	PROCEDURE DIVISION. (((AQUI SÓ PODE USAR A PARTIR DA COLUNA 8 OU DA COLUNA 12. NA 8 VC USA PARA LABEL (ETIQUETA) E NA 12 PARA 
+	INICIO.
+       *
+	INC-OP0. (((NOME DE UMA ROTINA, NOME DE REFERENCIA)))
+		OPEN I-O PRODUTO (((ABRIR O ARQUIVO "PRODUTO" QUE ACEITA LEITURA E ESCRITA; PODERIA SER, AO INVÉS DO I-O O 'INPUT' (LÊ ARQUIVO EXISTENTE) OU 'OUTPUT' (GRAVA EM UM NOOOOOVO PRODUTOR. SE NÃO TIVER, CRIA, SE JÁ TIVER, SOBREPÕEOU 'EXTEND' (APEND, VC GRAVA NO ARQUIVO QUE JÁ EXISTE)))
+		IF ST-ERRO NOT = "00"
+			IF ST-ERRO = "30"
+				OPEN OUTPUT PRODUTO
+				CLOSE PRODUTO
+				MOVE "*** ARQUIVO PRODUTO SENDO CRIADO **" TO MENS
+				PERFORM ROT-MENS THRU ROT-MENS-FIM (((MENS = MENSAGEM)))
+				GO TO INC-OP0
+			ELSE
+				MOVE "ERRO NA ABERTURA DO ARQUIVO PRODUTO" TO MENS
+				PERFORM ROT-MENS THRU ROT -MENS-FIM
+				GOT TO ROT-FIM. 
+	INC-0001.
+		MOVE ZEROS TO CODPRO QUANT PRECMD MASC2 VRESTOQ (((MOVER. INICIALIZA VARIAVEIS COM ZEROS)))
+					ALMOXARIFADO
+		MOVE SPACES TO DESCR UNID.
+       *	DISPLAY ERASE
+		DISPLAY "CADASTRO DE PRODUTO"	AT 0120
+		DISPLAY "CODIGO		:"	AT 0401
+		DISPLAY "DESCRICAO	:"	AT 0501
+		DISPLAY "UNIDADE	:"	AT 0601
+		DISPLAY "QUANTIDADE	:"	AT 0701
+		DISPLAY "PRECO MEDIA	:"	AT 0801
+		DISPLAY "VALOR ESTOQUE	:"	AT 0901
+		DISPLAY "NOME DO FUNCIONARIO :"	AT 1001
+	INC-002.
+		ACCEPT CODPRO AT 0421 (((
+		ACCEPT W-ACT FROM ESCAPE KEY (((TECLA DE ESCAPE, QUAL É)))
+			IF W-ACT = 02 (((02 = F1)))
+				CLOSE PRODUTO
+				GO TO ROT-FIM.
+			IF CODPRO = 0
+				MOVE "*** PRODUTO INVALIDO ***" TO MENS
+				PERFORM ROT-MENS THRU ROT-MENS-FIM
+				GO TO INC-002.
+	LER-PRODUTO01.
+			MOVE 0 TO W-SEL
+			READ PRODUTO
+			IF ST-ERRO
+
+	

@@ -1,0 +1,143 @@
+class A {
+	int a;
+	String x = "x";
+	String y;
+	public static void main (String[] args){
+		Object o (((declarando a variável)))= new Object (); (((está instanciando o objeto)))
+		int 2;  (((declarando)))
+		a = 10; (((inicializando)))
+		int b = 20; (((declarando e inicializando)))
+		String s = ""; (((criando uma instancia do objeto String com o valor em branco)))
+		String w = null (((criando uma variável apontando para uma área nula (fora da Stack) )))
+		w = "w"; (((cria uma instancia de dados na memória com "w" apontando para ela.(fora da stack.) para de apontar para o espaço nullo e começa a apontar para o outro lugar na memória, que é o w)))
+		String R = w; (((cria uma variável R e aponta para o MESMO W DE CIMA. Não cria um novo espaço com w, mas aponta pro já criado antigo. ISSO EM JAVA. pode ser diferente de linguagem para linguagem)))
+		Object o2 = o; (((aponta para o mesmo Object do começo)))
+	} (((retira o frame MAIN da STACK. Apaga todas as variáveis juntas. Os locais de memória para onde as variáveis apontaram (Object, String, w e null) continuam ativos até passar o LIXEIRO (GARBAGE COLLECTOR -> ele passa de vezes em vezes olhando os locais de memória que estão ou não sendo usados e limpa))))
+		OU 	
+		System.gc() (((função para chamar o garbage collector ANTES do momento automático)))
+	}
+
+
+- Toda vez que um programa é rodado, ele vai na Stack e executa a partir de uma frame as linhas. As variáveis primitivas são guadadas dentro do próprio Stack. Mas as específicas apenas guarda um ponteiro apontando para fora da Stack, ao objeto.
+
+- A instancia cria uma área para guardar a variável do tipo específico (Object no caso)
+
+- Variável que é criada dentro de uma função é considerado uma variável LOCAL, que morre no momento em que a função acaba. A variável criada direto na classe são consideradas Variável de INSTÂNCIA (ou global).
+
+- toda STRING é uma instância.
+
+- STACK => É ONDE FICAM AS VARIÁVEIS E AS FUNÇÕES (QUE SE ALOCAM EM SUBUNIDADES DA STACK CHAMADAS FRAMES)
+
+- HEAP => É ONDE FICAM OS LOCAIS DE MEMÓRIA OCUPADOS PELOS VALORES QUE JÁ FORAM APONTADOS POR VARIÁVEIS
+
+OUTRO EXEMPLO
+
+class A {
+	int a;
+	String x = "x";
+	String y;
+	public void fazAlgo(){ (((método faz algo, que chama outro método, outro)))
+		int b = 4;
+		String s = "s";
+		outro();
+	}
+	public void outro(){
+		int c = s;
+		String w = "w";
+	}
+	public static void main (String args[]){
+		A 2 = new A();
+		a.fazAlgo();
+	}
+
+}
+
+PARA VER DIAGRAMA DE STACK E HEAP, VER IMAGEM 20-02.1
+
+
+O GARBAGE COLLECTOR VAI APAGANDO A HEAP EM PILHA, DO ÚLTIMO PARA O PRIMEIRO.
+
+- como EXPLODIR a memória STACK (stackoverflow) -> fazer uma recursiva para chamar várias e várias e várias e várias frames, infinitamente ATÉ passar o limite.
+
+EXEMPLO
+
+class A {
+	public static void main (String args[]){
+		main(args);
+}
+
+- PARA ESTOURAR A MEMÓRIA HEAP -> out of memory error "JAVA HEAP SPACE"
+- JAVA CODE CONVENTION ((BAIXAR APOSTILA PARA ENTENDER COMO FUNCIONA OS CÓDIGOS EM JAVA, MUITO BOM, DÁ PRA LER RAPIDINHO. DOCUMENTAÇÃO, COMENTÁRIO ETC. DICAS IMPORTANTES))
+
+=====================================
+
+ESTUDOS DE STRINGS
+
+por que não podemos usar o == para comparar duas strings
+- na hora que eu cadastro o texto (decalro e inicializo), cria na memória heap um string contendo "a". Tem uma tabelinha por hashcode contendo esse registro.
+quando eu faço uma nova string contendo o texto "a", ele logo vê na tabela se há o haschcode e se já tiver o texto, ele aponta pro mesmo lugar que o texto anterior já estava apontando. As duas strings estão apontando para a mesma área de memória.
+
+- a String é um elemento IMUTÁVEL. Uma vez criado o texto, ele não pode ser alterado.
+- quando eu mudo o ponteiro da variável com string, ela cria outra área na HEAP.
+
+String a = "a"; --->>> a aponta para espaço HEAP com (String "a")
+String b = "a"; --->>> b vê na tabela de hash se já tem texto "a". Tendo, b aponta para o mesmo HEAP de a, ou seja -> (String "a")
+b = b+ ""; --->>> é criado um espaço novo em HEAP com "b". O espaço "a" concatena com o espaço "" e CRIA UM NOVO ESPAÇO (String "A")
+
+AGORA O == NÃO VAI FUNCIONAR!!!!
+
+
+
+O QUE DEVEMOS USAR AO INVÉS DO == É O EQUALS
+
+if(a.equals(b) ... ELE CONFIRMA PELO CONTEÚDO E NÃO PELO ESPAÇO HEAP.
+
+===== 
+PARA CONCATENAR, NÃO DEVE-SE USAR O A +... 
+
+USE O STRING BUFFER!!!! 
+
+=======
+COMO ACESSA PELO GITHUB. VAI DISPONIBILIZAR TODOS OS CÓDIGOS DE SALA NO GITHUB
+
+http://github.com/antoniorcn/fatec-2020-1s
+
+COMANDOS DO GIT
+
+git clone https://github.com/antoniorcn/fatec-2020-1s.git (((COLOCAR O .GIT NO FINAL -- E COLOCAR HTTPS E NÃO DEIXAR SÓ COM HTTP)))
+
+git add . ((pega todos os arquivos modificados e coloca na área de STAGE (uma área própria para mandar as coisas pro servidor))
+
+git commit -a -m "POO Aula 2 Noite" (((pega tudo que tá no STAGE e fecha como se fosse um lote)))
+
+git push ((manda o lote para o servidor)
+
+git pull ((puxa tudo da net pro meu pc))
+
+
+SEMPRE QUE COMEÇAR, A ORDEM:
+
+git pull
+git add .
+git commit -a - m ""
+git push
+
+
+PARA FAZER DIRETO NO ECLIPSE - IR NA ABA TEAM
+
+lá no repositório, vc tem a possibilidade de ver o histórico de todos os commits que foram feitos
+
+
+
+
+
+
+
+
+
+  
+
+			
+
+
+
