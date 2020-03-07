@@ -1,0 +1,37 @@
+public class EstourarMemoriaHeap {
+
+	int[] vetor = new int [500];
+	EstourarMemoriaHeap proximo;
+
+public static void main (String args{}) throws InterruptedException {
+	System.out.println("Tentando estourar memoria heap");
+
+	EstourarMemoriaHeap raiz = new EstourarMemoriaHeap();
+	EstourarMemoriaHeap ultimo = raiz;
+	while (true) {
+		ultimo.proximo = new EstourarMemoriaHeap();
+		ultimo = ultimo.proximo;
+
+		Thread.sleep(1);
+
+}
+
+
+
+ABSTRAÇÃO =================================
+
+durante  a observação e análise de levantamento de dados para a criação das entidades do meu sistema, tenho que abstrair o que é mais importante dentro daquilo que existe. Por exemplo, não é interessante eu saber o peso ou a cor do cabelo das entidades Aluno para uma Secretaria escolar. Porém, a matrícula, turma, data de entrada etc é relevante. Abstrair é isso: puxar o que é importante de um global.
+
+BEZERRA: é igniorar coisas irrelevantes e pegar o improtante.
+
+Os objetos podem ser existentes no mundo real ou também podem ser intangíveis, abstratos.
+
+CLASSE=====================================
+
+objetos com semelhanças podem ser do mesmo tipo.
+a classficação serve para especificar e descrever o comportamento esperado para o objeto.
+
+MÉTODOS ========================================
+variáveis LOCAIS de métodos específicos NÃO ESTÃO NO MESMO FRAME NA STACK, por isso um método não consegue acessar a variável da outra. E por isso as variáveis somem com o fim da função.
+
+

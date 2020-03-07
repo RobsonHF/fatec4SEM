@@ -1,0 +1,91 @@
+01 REGELI.
+	03 CPF		PIC 9(11).
+	03 NOME 	PIC X(30)
+	03 EMAIL	PIC X(35)
+	03 DATANASC.
+		05 DIANASC	PIC 9(2)
+		05 MESNASC	PIC 9(2)
+		05 ANONASC	PIC 9(4)
+
+
+
+01 DATANASC.
+	03 DIAM		PIC $9,
+	03 FILLER	PIC X(1) VALUE "/",
+	03 MESM		PIC Z9,
+	03 FILLER	PIC X(1) VALUE "/", (((não tenho ctz se coloca vírgula no final)))
+	03 ANOM		PIC ZZ99.
+
+
+MOVE ((((uma das instruções mais utilizadas)))
+
+Posso mover um número:
+MOVE DATANASC TO DATANASC
+MOVE 28022020 ((pode ser números tb)) TO DATANASC
+
+MOVE ANGELO TO DATANASC (((dá pra mover SIM letras para campos alfanumericos. Porém dá porcaria no momento de visualizar a data por sub-categorias. Por exemplo, se visualizar DATANASC vai sair ANGELO, porém se pedir para visualizar DIAM, vai sair bosta ))
+
+ 
+ACCEPT (LL, CC) (((linha linha, coluna coluna))) 'VARIÁVEL' (((é outro dos comandos mais utilizados. Ele serve para liberar o teclado para digitação. E vai ter uma variável lá)))
+
+((((A TELA PADRÃO TEM 80COLUNASX24LINHAS))) (((Ou seja, eu posso mostrar essa variável em qqr lugar da tela, e ela ficará lá até eu pedir pra limpar a tela)))
+
+========= TENHO QUE COLOCAR PONTO FINAL APENAS EM FINAL DE ROTINA
+
+ACCEPT NOME AT LLCC
+ACCEPT 'VARIÁVEL' FROM ESCAPE KEY (((esc((00)) enter((01)), F1((02))-F12((13)) )))
+EX.
+
+DISPLAY (05, 30) "NOME"
+ACCETP (05, 30) NOME
+ACCEPT W-ACT(((VARIÁVEL))) FROM ESCAPE KEY (((COLOCA A VARIÁVEL NOME NA TECLA DE ESCAPE)))
+IF W-ACT = 13
+	CLOSE ARQCLI
+	STOP RUN.
+
+
+DISPLAY (LL, CC)
+DISPLAY {    } AT LLCC
+
+
+============================== COMPILAÇÃO E RODA
+
+COBOL CEP001,,, (((COMPILA)))
+
+ISAM (((CONEXÃO NO BANCO DE DADOS)))
+RUNCOB CEP001 (((EXECUTA)))
+
+============================
+PROXIMA AULA, PARA CASA
+
+criar um programa de cadastro de amigos
+apelido x(12)
+nome x(30)
+email x(30)
+
+nome do arquivo: arquivo:cadamigo
+registro: regamigo
+
+
+====================================== ROTINA DE MENSAGEM
+
+     **********************
+      * ROTINA DE MENSAGEM *
+      **********************
+      *
+       ROT-MENS.
+                MOVE ZEROS TO W-CONT.
+       ROT-MENS1.
+               DISPLAY (23, 12) MENS.
+       ROT-MENS2.
+                ADD 1 TO W-CONT
+                IF W-CONT < 3000
+                   GO TO ROT-MENS2
+                ELSE
+                   DISPLAY (23, 12) LIMPA.
+       ROT-MENS-FIM.
+                EXIT.
+       FIM-ROT-TEMPO.
+
+Ela serve para mandar uma mensagem após a entrada de dados por um operador. O campo if w-cont < 3000 é um valor para quanto tempo mostar uma mensagem na tela do operador. 3000 +- 3 segundos. pode alterar para ficar mais tempo ou menos tempo a mensagem na tela.
+

@@ -1,0 +1,58 @@
+mandar email pra prof perguntando do bidirecional e das listas.
+rupi minimal (smal project)
+
+
+andrewspaivaluz@gmail.com -> mandar pra esse carinha tb além do grupo
+
+
+
+Implementação de associaçções
+
+
+duas classes, A e B.
+
+se elas são 1 para 1.
+tenho que ter uma variável ou função ou outra estrutura que puxe da outra entidade.
+
+quando é 1 pra muitos, em uma entidade há o chamado de coleção da outra. A outra tem apenas a chamada de uma instancia ou variável da primeira.
+
+muitos pra muitos 
+
+na bidirecional, tenho que usar uma coleção (lista, set, árvore, etc)
+
+
+====================== conectiviadade 1:N
+se há 1 aluno para muitos participação
+
+pode ser 
+
+1 aluno par a 1 coleçãoParticipações com dependencia de participação e em set
+
+ou 1 aluno ara 1 set<participação> com dependencia em participação
+
+
+surgem classes do além, da transformação do modelo. vão desmembrando, quebrando. pode até fazer desaparecer. durante o tratamento das entidades não é tudo estático.
+
+precisa ter a manipulação da estrutura com a outra classe.
+
+
+============ conectividade N:M
+
+MUITOS PARA MUITOS OBRIGATORIAMENTE TENHO QUE FORMAR UMA CLASSE ASSOCIATIVA
+
+
+
+pode ser
+muitsa disciplinas recebe muitas gradesdisponibilidades
+
+ou
+1 gradedisponibilidades recebe 1 set<disciplina> dependendo da entidade disciplina
+
+isso se chama refinamento.
+
+ver slide mano na moral, 39
+
+
+
+
+
