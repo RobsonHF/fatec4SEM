@@ -1,0 +1,101 @@
+Padrões de arquitetura de software 
+Um software com um design mal estruturado pode levar a perdas irreparáveis, de tempo e dinheiro, principalmente. Às vezes, o desenvolvedor tem a melhor das intenções na hora de corrigir um software, mas acaba se frustrando pois não encontra uma forma de manter o código e combiná-lo com o novo layout. É preciso refazer.
+Existem 4 sintomas que evidenciam um design de software ultrapassado:
+
+Rigidity - difficult to change. Um código mal diagramado, com muita vulnerabilidade, tem maior tendência a parar de funcionar quando mudanças são feitas. Então, nesse caso, a rigidez surge com a necessidade de modificar sempre minimamente o código a fim de não evidenciar outros possíveis erros que venham a surgir.
+Fragility - Tendência do código em quebrar a cada simples mudança. Tem ligação direta com a rigidez, pois manter o software sem alterações por conta de possíveis erros pode ser encarado como uma fragilidade
+Immobility - Impossibilidade de reutilizar o software para outros fins, pois ele foi feito com base em um uso específico. Isso acaba gerando problemas como a necessidade de reescrita do software e não seu reaproveitamento (acaba saindo mais custoso)
+Viscosity - no design ou no ambiente. É como a capacidade de persistência (facilidade) com que as coisas sao dispostas no programa. viscosidade no ambiente remete a diminuir a quantidade de processos para facilitar o desempenho, independentemente de quaisquer outros fatores (design fica basicão, mas software fica mais rapido) ja de design é quando as mudanças sao mais fáceis de serem aplicadas, o que torna a viscosidade baixa. por exemplo, se mudar é mais fácil, o design será trocado constantemente( e isso acaba sendo ruim)
+
+Geralmente essas vulnerabilidades são causadas por mudança nos requerimentos, visto que um software costuma atender Às necessidades extremamente voláteis do mercado. É preciso que esses requisitos sejam muito bem definidos para que não ocasionem vulnerabilidade nas próximas versões do software, pois isso pode ocasionar na perda de valor de negócio do mesmo.
+
+Princípios do Design de classes orientado a objetos.
+Segundo Bertrand Meyer, "devemos escrever nossos módulos de tal forma que possam ser extendidos sem que haja necessidade de modificar o código-fonte dos mesmos." Princípio OCP - OPEN/CLOSED PRINCIPLE
+
+Polimorfismo dinâmico - LogOn
+Criar uma interface que contém os atributos em comum entre os objetos faz com que haja uma forma de abstrair o objeto de forma a possibilitar a reutilização do código onde há em mais de um objeto as mesmas características. A subclasse sobrepõe o método original (sobrescrita)
+
+Polimorfismo estático - 
+Pode ser um template ou um generics
+A forma pode ser extendida a diversos tipos de objeto sem que haja necessidade de modificação, o seja, podemos implementar a mesma operação várias vezes na mesma classe
+
+Princípio de Substituição de Liskov (LSP)
+"Os subtipos devem ser substituíveis pelos seus tipos de base". Qualquer subclasse pode ser utilizada no lugar da superclasse
+Significa dizer que classes derivadas devem poder substituídas por suas classes base e vice-versa.  Uma subclasse deve sobrescrever os métodos da superclasse de forma que a funcionalidade do ponto de vista do cliente continue a mesma.
+
+Princípio de inversão de dependência (DIP)
+Depende de abstrações e não de objetos concreto.
+mecanismo primário para alcançar o objetivo da OO.
+Abstrações de Dependência - toda a dependência deve direcionar a uma interface ou a uma classe abstrata. nunca deve apontar a uma classe completa.
+
+"Coisas concretas" podem mudar muito, como um dado "nome" de um Cliente, por exemplo. A classe abstrata cliente pode conter somente a abstração do dado Nome, ou a abstração do método Pagar(), então assim, podem ser melhor especificadas as preferências de cada cliente.
+
+Uma das motivações para escolher a DIP é prevenir-mos da dependência de módulos voláteis, ou seja, que são modificados com muita frequência. 
+
+para criar uma instancia, é necessário uma classe concreta. 
+
+O Princípio de Segregação de Interfaces (ISP)
+Muitas interfaces com funções específicas. Interfaces de serviço, por exemplo.
+Se muitos tipos de cliente possuem o mesmo método, ele deve ser utilizado em diversas interfaces e não em apenas uma.
+
+Princípios de Arquitetura de Pacotes
+Os pacotes são importantes para a organização da orientação a objetos. Imagine um projeto que possui 100 classes, com todas espalhadas pela aplicação, sem critério nenhum de separação. Complicado, não? Por tal motivo, há o princípio de coesão de pacotes, onde há a separação das classes (interfaces, classes abstratas etc.) de acordo com sua função no projeto.
+
+O princípio de equivalencia de reutilização de Versão (REP)
+O autor do código deve manter seu código equivalente mesmo se houver alguma atualização, pois o cliente pode não ter a possibilidade de atualizá-lo. Caso o suporte para novos releases seja insuficiente, o cliente pode optar por um outro software equivalente. Os autores, então, organizam as classes em pacotes para que estas possam ser reutilizadas e permitam a manutenibilidade do sistema sem alterações em sua confiabilidade.
+
+O Princípio de Fechamento Comum (CCP)
+
+Reutilização de classes que possuem características comuns permite que o impacto de release de novas packages (componentes) seja minimizado ou seja, que as mudanças ocorram nos mesmos fatores em todas aquelas classes. Uma mudança que afeta todas as classes desse componente, mas não interfere nos outros.  "Se duas classes são tão fortemente vinculadas (física ou conceitualmente) que sempre mudam juntas, elas pertencem ao mesmo componente"
+
+O Princípio de Reuso (CRP)
+Classes que não podem ser reutilizadas / refatoradas em conjunto não devem ser dispostas em conjunto.
+Quando dependo de um componente, dependo de todas as classes do componente. Portanto, este princípio diz mais sobre quais classes devem estar juntas do que sobre as que não devem estar.
+
+O Princípio de Acoplamento de PAcotes refere-se ao relacionamento entre os componentes.
+
+Princípio das Dependências acíclicas (ADP)
+As dependências entre componentes (pacoteS) não devem ser cíclicas, pois caso um pacote que possua outro como seu dependente for modificado, todo o trabalho pode ter sido em vão, caso alguém faça alguma alteração no código. Cada equipe deve poder possuir seu componente a ser desenvolvido. Um componente que depende de poucos outros componentes para ser executado pode ser considerado acíclico, pois nao passa por diversos outros componentes para funcionar. Usa um outro componente específico, que também nao tem outras dependencias
+
+Princípio das dependências estáveis (SDP)
+Os módulos mais difíceis de serem alterados (estáveis) não devem ser dependentes de módulos fáceis de mudar (voláteis). Dessa maneira, caso haja modificação em um módulo volátil, o módulo estável não é necessariamente alterado
+Como identificar estabilidade? 
+Aa (acoplamentos aferentes): o núumero de classes fora desse compoente que dependem de classes dentro do mesmo componente
+Ae (acoplamentos eferentes): o número de classes de dentro que dependem de classes de fora do componente.
+Instabilidade I = Ae / (Aa + Ae)
+I = 0 indica estabilidade máxima. I = 1 indica instabilidade máxima.
+
+São calculadas contando-se o número de classes fora e dentro de um componente em questão.
+
+O software, por sua vez, nao deev ser um componente inteiramente estável pois está em constante mudança. Caso o software de empresas grandes seja definido como inteiramente estável, que não necessita de alterações, a empresa pode vir a perder valor de mercado em alguns anos, visto que as tecnologias evoluem. Mas não podemos também definir um release a um software instável. Deve-se alcançar um balanço entre a necessidade de mudança (por isso, as classes, pacotes e componentes de uma aplicação devem ser extremamente padronizados - para impedir que alterações de melhoria sejam prejudiciais à estabilidade do problema).
+
+Princípio das Abstrações Estáveis (SAP)
+Um componente deve ser tão abstrato quanto estável para que sua estabilidade não impeça que ele seja estendido. Já um componente concreto deve ser instável para que sua instabilidade permita alterações fáceis em seu código.
+
+Padrões de Arquitetura Orientada a Objetos
+
+Design Patterns - padrões que são utilizados sempre pois dão certo.
+UMa boa solução para um problema comum.
+Uma boa solução para todos os problemas listados acima.
+
+Abstract Server
+Interface que pode resolver uma implementação em mais de uma classe concreta. Serve ao DIP
+
+Adapter
+É uma nova classe que deriva da Interface criada e delega funções a uma classe específica que a necessita. É um adaptador em forma de objeto. É mais eficiente que utilizar um objeto (e mais fácil) porém possui alto acoplamento.
+
+Observer
+Os observers são aqueles que assinam uma classe chamada SUBJECT e garantem saber quando seus dados são alterados. Podem também cancelar seu registro e não mais receber suas atualizações.
+Definicão formal: “O Padrão Observer define uma dependência um-para-muitos entre os objetos de modo que quando um objeto muda de estado, todos os seus dependentes são notificados e atualizados automaticamente”.
+O padrão Observer adere ao principio de projeto em que se busca Designs levemente ligados entre objetos que interagem, isto é, eles interagem normalmente, no entanto sabem muito pouco um do outro.
+
+Bridge
+Reunião de hierarquias de tipo. Auxilia quando uma hierarquia de tipo tem mis de um grau de liberdade. as hierarquias são separadas e interligadas com pontes (bridges). é complexa mas nos permite separar diretivas
+
+Abstract Factory
+O padrão FACTORY nos permite criar instâncias de objetos concretos, embora dependamos apenas de interfaces abstratas. Portanto, ele pode ser de grande ajuda durante o desenvolvimento ativo, quando essas classes concretas são altamente voláteis. 
+
+Conclusion
+
+
+

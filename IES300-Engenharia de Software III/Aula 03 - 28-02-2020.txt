@@ -1,0 +1,26 @@
+DIP - Princípio de Inversão de Dependência
+
+quanto menos depender de agregações/implementações, menor é o acoplamento (Inversão de dependência)
+
+class Reader {
+	public:
+	virtual int Read() = 0;
+};
+
+class Writer {
+	public:
+	virtual void Write(char) = 0;
+}
+
+void Copy(Reader& r, Writer& w) {
+	int c;
+	while((c=r.Read())!=EOF)
+		w.Write(c);
+}
+
+
+Módulos de alto nível nao devem depender de módulos de baixo nível. ambos devem depender da abstração
+
+inversão de dependencia não é igual a injeção de dependência
+
+

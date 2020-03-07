@@ -1,0 +1,50 @@
+Dependênca não estrutural
+
+Navegabilidade de associações
+
+	- Associação bidirecional - a classe conhece a outra classe
+	- Unidirecional - só uma classe conhece a outra
+
+Navegabilidade 
+-----------------------------------
+Diagramas de interação
+|________|		|__________|
+|___A____|1-----------*	|____B_____|
+|a	 |		|b	   |
+|List<b> |		|a	   |
+|	 |		|	   |
+|________|		|__________|
+
+Classe parametrizada - classe utilizada para definir outras classes. Possui operações ou atributos cuja definição é feita com parâmetros
+
+Professor _1..1___________0..1_> Grade
+-> O professor conhece a grade mas a grade nao conhece o professor
+
+Refinamento - dissolve o relacionamento de muitos para muitos em 1:1
+A Collection é representada no diagrama como uma classe
+
+Classe é um atributo de Set
+
+public class Aluno {
+	private Set<Participacao> participacoes;
+...
+	public boolean adicionarParticipacao (Participacao p) {
+		...
+	}
+	public boolean removerParticipacao (Participacao p) {
+		...
+	}
+}
+
+
+Conectividade N:M
+---------------------
+
+Composição - está dentro (new objeto dentro do outro)
+Associação - está por fora, independente
+
+Implementação de classes associativas
+
+classe associativa - obrigatória quando há uma relação de muitos para muitos 
+
+(Ver a imagem novamente) 
