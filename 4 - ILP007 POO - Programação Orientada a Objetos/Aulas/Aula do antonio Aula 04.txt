@@ -1,0 +1,43 @@
+D Direto 
+I Herança
+R Referencia
+
+getters e settes indicam agregação
+COMPOSIÇÃO N]ao
+
+composição é quando a instancia de A (classe) morre ao morrer a classe b
+
+Herança - transmite os membros de uma classe para a outra
+protected
+em java, nao pode haver mais de uma classe-mãe
+
+sobrescrita de método - herda da mãe e reescreve o método para executar o que essa classe quisert
+
+Acesso DIRETO - um método chama um outro método que esta dentro da mesma classe
+
+acesso INDIRETO - acessa um método da superclasse a partir de uma classe filha(herança)
+
+acesso por REFERÊNCIA - instancia de um classe permite que se acesse o método de uma ooutra classe classe.método()
+Acesso pelo super por super().método() é um de referência, não de herança
+
+Cadeia de Construtores: se uma classe herda de outra, o construtor dessa classe invoca o construtor das classes superior (super())
+
+this() <- invoca o construtor da classe 
+
+Se não tem um super(), ou uma classe mãe, ele invoca o construtor da classe Object, que é a "mãe de todos" no Java
+
+POLIMORFISMO
+
+Sobrecarga (Overload) - métodos com o mesmo nome, mas que podem conter quantidade de parâmetros e tipo de parâmetros diferentes. 
+
+Sobrescrita (Overriding) - permite que a subclasse modifique o comportamento herdado da superclasse.
+mesma assinatura e mesmos parâmetros, mas realiza outra funççao
+
+Pessoa p1 = new Pessoa();
+Atleta a1 = new Atleta();
+Pessoa p2 = new Atleta(); <-- o que vale é a instância Atleta()
+
+final <- não permite sobrescrita
+static <- não é instanciado, nao herda, etc
+não posso diminuir a visibilidade de um método herdado (de publico para privado)
+se o método é privado, ele não herda diretamente, tem que referenciar
