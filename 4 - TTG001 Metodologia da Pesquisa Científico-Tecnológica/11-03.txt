@@ -1,0 +1,48 @@
+empirismo: comprovar testando
+
+racionalismo: dedução a partir de menos dados para generalizar ao universo.
+
+tipos de pesquisa cientifica:
+
+- exploratória
+	revisão bibliográfica.
+	entrevistas
+	visistas técnicas
+	visa conhecer os fatos
+
+- Descritiva
+	levantamentos ou observações sistemicas do fato
+	conhecer características especificas do fato, ou componentes desse fato
+
+- Explicativa
+	visa explicar e criar uma teoria a respeito de um fato
+	aprofunda o conhecimento
+	se ocupa com o porquê ou com a forma como o fenomeno ocorre.
+
+- LABORATÓRIO
+	interfere artificialmente na produção do fato. OU cria um cenário artificial.
+	permite padronizar os resultados
+
+- pesquisa bibliográfica
+	colocar o pequisador em contato com o que já se produziu a respeito do tema estudado.
+	requer conhecimentos de termos técnicos
+	precisa de boas referências bibliográficas (abnt)
+
+-> PROJETO DE PESQUISA
+
+- objetivo
+
+no projeto tem que ter:
+o que fazer - definição do tema/problema
+porque fazer - justificativa
+para quem fazer - objetivos
+onde fazer - local/campo
+como fazer - metodologia
+com o que fazer - recursos necessários
+quando fazer - cronograma
+com quanto fazer - orçamento
+como pagar - verba
+quem vai fazer - equipe
+
+
+
