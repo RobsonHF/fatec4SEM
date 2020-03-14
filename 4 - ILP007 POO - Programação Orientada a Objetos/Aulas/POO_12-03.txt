@@ -1,0 +1,99 @@
+@Override - Garante que o método é uma sobrescrita. Faz com que não haja erro de escrita de método, por exemplo
+O método da classe filha que sobrescreve o método da classe mãe deve receber um @Override
+
+Modificadores
+----------------------------------------------------------------------------
+Modificadores de acesso - default (package), public, private, protected
+
+DEFAULT - o elemento só é visível dentro daquele pacote, ou seja, caso queira acessar de outro pacote, nao acessa (nao ve)
+
+pode ser usado em métodos,classes e variáveis de instancia 
+
+acesso padrão, não possui keyword para identificr o modificador. 
+não da nem pra importar
+solução: transforma em public ou coloca as duas classes no mesmo pacote
+Não consegue acessar uma subclasse de outro pacote 
+
+PUBLIC - Todas as classes, independentemente dos pacotes, podem se ver. 
+
+PRIVATE - apenas os métodos internos da classe podem acessar os elementos marcados como private. somente pode ser usado em métodos e variáveis de instância.
+
+private NÃO É TRANSMITIDO EM HERANÇAAAAAAAAAAAAAAAA
+
+se um método é privado na classe mãe, a filha não a enxerga 
+o @Override pode acusar essa falsa sobrescrita
+
+PROTECTED - Permite o acesso a coisas do mesmo pacote. Se a classe está no mesmo pacote, consegue acessar. As classes filhas, por herança, acessam sem problemas, mesmo estando em outro pacote.
+----------------------------------------------------------------------------
+ABSTRACT -  identifica o elemento como sendo incompleto, a classe abstrata não pode ser instanciada, pode ser herdada por subclasse 
+
+pode conter métodos não abstratos
+se há um método abstrato, a classe vira abstrata
+_____________
+Animal	     | <-- abstract
+-------------|
+fazerSom();  | <-- abstract
+respira();   |
+
+Cachorro
+-------------
+respirar()
+fazerSom()
+
+_____________
+Macaco       | <-- abstract
+-------------|
+fazerSom();  | <-- abstract
+respirar();  |
+_____________|
+
+_____________
+Gorila       |
+-------------|
+fazerSom();  |
+respirar();  |
+_____________|
+
+O método abstrato (classe abstrata) meio que obriga a classe a ter uma classe filha que implementa esses métodos
+
+public abstract void comer(); //nao tem nenhuma implementação
+
+FINAL
+-----------------------------------------------------------------------------
+Completo, perfeito, não pode ser modificado. 
+Pode ser colocado na classe, no método ou na variável
+classe final - não pode ser herdada
+método final - não pode fazer sobrescrita
+variável final - não pode ser modificada, então vira uma constante
+
+Classe String é uma classe final por causa do polimorfismo 
+nenhuma classe que herda de string pode se passar por String 
+
+Final no parÂmetro da função - essa informação é ela dentro da função em todas as situações
+
+Strict Float Point (strictfp)
+
+Quando colocamos um número muito grande com v´´irgula, armazenadmos ele como
+(float)
+
+37,8432
+378432 * 10^-4
+
+24bits__|__8bits__
+mantiça | expoente
+
+strict float point - usa o padrão acima para guardar os números (mantiça e expoente) se usar assim, não perde os dados quando converte entre sistemas operacionais
+
+synchronized
+é aplicável a métodos e indica que o método só pode ser acessado por uma thread por vez 
+faz o semáforo
+ex: public synchronized boolean recebimento(){}
+só pode ser utilizada em MÉTODOS
+
+NATIVE - Método é dependente da plataforma
+public native boolean recebimento();
+
+Acessa por DLL (?)
+
+transient
+volatile
