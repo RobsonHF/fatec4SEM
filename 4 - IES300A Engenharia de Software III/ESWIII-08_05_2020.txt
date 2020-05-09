@@ -1,0 +1,85 @@
+﻿Aula 06- dia 07/05/2020 – Programação Orientada a Objetos
+
+N1: Vídeo (70%) + Exercícios (30%)
+
+entrega do vídeo: 8ª semana (final de maio)
+
+N2: Trabalho (70%) + Exercícios (30%)
+
+trabalho totalmente funcional: 15ª semana (final de junho)
+
+1ª bateria de exercícios – do inicio até collection (final de maio)
+2ª bateria de exercícios – de collections até o final do semestre
+
+JavaFX
+Java8 Oracle
+
+Tela principal → Stage
+
+Scene 
+
+Parent (Region or Group)
+
+@Override método start
+
+
+Engenharia de Software III
+Aula ?  - dia 08/05/2020
+
+DIP – Princípio de inversão de dependência
+
+O relacionamento de dependência indica que uma classe depende dos serviços oferecidos por outra classe
+
+Classe persistente ← entidade
+
+Dependência por atributo: A possui um atributo do tipo B. Exemplo: Cliente possui um atributo pet do tipo Animal.
+
+
+Dependência estrutural – por atributo (ou estrutural)  
+
+Dependência não estrutural -
+Dependência por variável global – todo mundo pode referenciar. A utiliza variável global do tipo B.
+Dependência por variável local – A possui alguma operação cuja implementação utiliza uma variável local do tipo B 
+dependência por parâmetro – A possui pelo menos uma operação cuja implementação recebe um parâmetro e esse parâmetro é B
+ 
+
+perseguir dependências não estruturais
+  
+Classe A 
+Classe B
+
+navegabilidade bidirecional – conhecimento mútuo entre os objetos 
+
+a navegabilidade pode ser verificada pelo estudo do diagrama de interação
+
+Composição – mais forte que agregação. Os objetos parte pertencem a um todo. Ou seja, uma das classes pertence à outra classe. Geralmente, o todo não conhece o objeto parte. O objeto parte pode existir em outros objetos-todo, ou seja, se um objeto completo (composto de várias partes) deixar de existir, não necessariamente os objetos parte serão perdidos. Composição = agregação não compartilhada. Seu símbolo é o de diamante negro.
+
+Exemplo: itemPedido dentro de um Pedido.
+ItemPedido é também um Produto e se o Pedido for finalizado, continua existindo como Produto mas não é mais um itemPedido. 
+
+
+conectividade 
+
+Implementação de Classes Associativas 
+acoplamento
+concreto – um objeto A faz referência a B pelo conhecimento da classe B (instancia?)
+
+abstrato – o objeto remetente envie uma mensagem para um receptor sem ter conhecimento de fato
+
+as interfaces e classes abstratas são importantes para criar acoplamento abstrato
+
+cliente -------→ Serviço 
+				   
+Classe parametrizada – um template, uma classe que serve de modelo para definir outras classes
+Lista<Tipo>
+
+exemplo: uma lista de empregados é uma Lista<Empregado> ou Set<Empregado> que já possui funções de collections, como .add, .remove, etc
+
+
+
+
+
+
+
+
+
