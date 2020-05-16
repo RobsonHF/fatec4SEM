@@ -7,7 +7,6 @@ public class Dicionario extends Application {
 
 	public TelaBusca telaBusca;
 	
-	
 	public static void main(String[] args) {
 		Application.launch(Dicionario.class, args);
 	}
@@ -17,7 +16,7 @@ public class Dicionario extends Application {
 		
 		telaBusca = new TelaBusca();
 		Scene cena = new Scene(telaBusca);
-		
+		 
 		stage.setScene(cena);
 		stage.setTitle("Dicionário");
 		stage.show();

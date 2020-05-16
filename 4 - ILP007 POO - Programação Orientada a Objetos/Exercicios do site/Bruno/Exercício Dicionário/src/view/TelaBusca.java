@@ -7,10 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import model.Palavra;
 
-
-public class TelaBusca extends Group {
+public class TelaBusca extends Group{
 	
 	private FlowPane painelBusca;
 	private TextField txtBusca;
@@ -20,43 +20,53 @@ public class TelaBusca extends Group {
 	private Label lblResultadoPalavra;
 	private Label lblResultadoDefinicao;
 	
+	private VBox vbox;
+	
 	private TelaBuscaController tbc;
 	
 	public TelaBusca() {
 		
-		this.painelBusca = new FlowPane();
-		this.painelBusca.setMinSize(400, 200);
-		this.painelBusca.setHgap(10);
-		this.painelBusca.setPadding(new Insets(20));
+		tbc =  new TelaBuscaController();
 		
-		this.txtBusca = new TextField();
-		this.txtBusca.setPromptText("Digite aqui para pesquisar...");
-		this.btnBusca = new Button("Buscar");
+		painelBusca = new FlowPane();
+		painelBusca.setMinWidth(400);
+		painelBusca.setHgap(10);
+		painelBusca.setPadding(new Insets(20));
 		
-		this.painelResultado = new FlowPane();
-		this.painelResultado.setMinSize(400, 400);
-		this.painelResultado.setHgap(10);
-		this.painelResultado.setPadding(new Insets(0, 20, 20, 20));
+		txtBusca = new TextField();
+		txtBusca.setPromptText("Digite aqui para pesquisar...");
+		txtBusca.setMinWidth(260);
+		btnBusca = new Button("Buscar");
 		
-		this.lblResultadoPalavra = new Label();
-		this.lblResultadoDefinicao = new Label();
+		painelResultado = new FlowPane();
+		painelResultado.setMinSize(400, 400);
+		painelResultado.setHgap(10);
+		painelResultado.setPadding(new Insets(0, 20, 20, 20));
 		
-		this.painelBusca.getChildren().addAll(txtBusca, btnBusca);
-		this.painelResultado.getChildren().addAll(lblResultadoPalavra, lblResultadoDefinicao);
-		this.getChildren().addAll(painelBusca);
+		lblResultadoPalavra = new Label();
+		lblResultadoDefinicao = new Label();
+		
+		lblResultadoDefinicao.setWrapText(true);
+		lblResultadoDefinicao.setPrefWidth(painelResultado.getMinWidth());
+
+		painelBusca.getChildren().addAll(txtBusca, btnBusca);
+		painelResultado.getChildren().addAll(lblResultadoPalavra, lblResultadoDefinicao);
+		
+		vbox = new VBox(painelBusca, painelResultado);
+		
+		this.getChildren().add(vbox);
 		
 		btnBusca.setOnAction((e) -> {
 			
-			tbc = new TelaBuscaController();
-			Palavra pBusca = tbc.submeteBusca(txtBusca.getText());
-						
-			if (pBusca != null) {
-				lblResultadoPalavra.setText(pBusca.getPalavra());
-				lblResultadoDefinicao.setText(pBusca.getDefinicao());
-				this.getChildren().removeAll(this.painelBusca, this.painelResultado);
-				this.getChildren().addAll(this.painelBusca, this.painelResultado);
-			}else {
-				new TelaCadastro(txtBusca.getText());
+			if (!txtBusca.getText().isEmpty()) {
+				Palavra pBusca = tbc.submeteBusca(txtBusca.getText());
+				if (pBusca != null) {
+					
+					lblResultadoPalavra.setText(pBusca.getPalavra());
+					lblResultadoDefinicao.setText(pBusca.getDefinicao());
+				}else {
+					new TelaCadastro(txtBusca.getText());
+				}
 			}
 			e.consume();
 		});

@@ -45,17 +45,16 @@ public class ManipulacaoArquivo implements ManipulacaoArquivoI {
 	}
 
 	@Override
-	public void escreverNoArquivo(Palavra palavra) throws FileNotFoundException, IOException {
+	public void escreverNoArquivo(String palavra, String descricao) throws FileNotFoundException, IOException {
 
 		File arquivo = new File("dicionario.txt");
-		FileWriter fw;
-
-		fw = new FileWriter(arquivo);
+		FileWriter fw = new FileWriter(arquivo, true);
 		BufferedWriter bw = new BufferedWriter(fw);
 		
-		bw.write(palavra.getPalavra());
+		bw.write(palavra);
 		bw.newLine();
-		bw.write(palavra.getDefinicao());
+		bw.write(descricao);
+		bw.newLine();
 		
 		bw.close();
 	}

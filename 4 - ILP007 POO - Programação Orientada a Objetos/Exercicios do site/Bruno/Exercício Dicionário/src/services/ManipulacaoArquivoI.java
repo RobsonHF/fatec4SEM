@@ -10,5 +10,5 @@ public interface ManipulacaoArquivoI {
 
 	Collection<Palavra> lerArquivo() throws FileNotFoundException, IOException;
 	
-	void escreverNoArquivo(Palavra palavra) throws FileNotFoundException, IOException;
+	void escreverNoArquivo(String palavra, String descricao) throws FileNotFoundException, IOException;
 }

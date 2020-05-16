@@ -14,7 +14,6 @@ public class TelaBuscaController extends ManipulacaoArquivo{
 		try {
 			dicionario = this.lerArquivo();			
 			for (Palavra p : dicionario) {
-				
 				if (p.getPalavra().equalsIgnoreCase(palavra)) return p;
 			}
 		} catch (IOException e) {
