@@ -1,0 +1,19 @@
+Aula 11/05/2020 - Automação de Rotinas
+
+- cron?
+clamav
+
+com o cron d systema a cada 1 hora fazer um Scan lá em /home/SEUUSUARIO/Downloads
+
+Gravar um video mostrando: O script, o Clamav instalado e a regra lá no cron.
+
+video da semana passada: 
+
+
+- prática de criar uma hd sata
+- clicar no simbolo de HD, a partir da OVA prova
+- é o simbolo da direita, que tem 3 disquinhos empilhados
+- cd/dev# 
+
+
+Tentei fazer for each para usar inner, porém deu um erro de não poder transformar Object em DataTable, porém Item não é Object.. Dá para ver pelo log o tipo. Gostaria de explicação
