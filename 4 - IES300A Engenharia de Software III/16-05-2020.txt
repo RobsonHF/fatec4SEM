@@ -1,0 +1,3 @@
+OPC - open-closed principle. é o princípio de que entidades devem estar abertos para receber novas extensões adicionais, mas fechadas para que seu código fonte seja modificado.
+
+- ISP - Interface egregation principle: uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar. Ou seja, é melhor criar interfaces específicas do que uma genérica.
