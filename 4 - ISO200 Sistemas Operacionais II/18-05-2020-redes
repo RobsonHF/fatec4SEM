@@ -58,6 +58,12 @@ lspci | grep Ethernet
 Listar as interfaces
 
 
+ATIVIDADES
+
+Nesta prática vamos criar uma rede privada dentro do Virtual Box e vamos fazer com que o Linux tenha 2 interfaces de rede;
+Uma das interfaces deverá estar apontada para Bridge (seu router fisico);
+A outra interface deverá estar apontada para a rede Interna
 
 
+resolução está disponível no arquivo que ele passou
 
