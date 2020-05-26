@@ -1,7 +1,5 @@
 package com.fernanda.entities;
 
-import com.sun.javafx.beans.IDProperty;
-
 public class Funcionario {
 	
 	private Long id;
