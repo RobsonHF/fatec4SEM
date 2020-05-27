@@ -3,11 +3,7 @@ package model;
 public class FormaDePagamentoDinheiro extends FormaDePagamento {
 
 	@Override
-	public String imprimeFormaDePagamento(Double pagamento) {
-		// TODO Auto-generated method stub
-		return null;
+	public String imprimePagamento(Double pagamento) {
+		return "R$" + pagamento + " foram pagos em dinheiro.";
 	}
-
-
-	
 }
