@@ -24,11 +24,15 @@ public class Empresa {
 		rh.adicionarFuncionario(func);
 		rh.adicionarFuncionario(func1);
 		rh.adicionarFuncionario(func2);
-		//rh.valorBonus(func);
-		//rh.valorBonus(func1);
+		System.out.println("----------------------------------------");
 		
+		rh.valorBonus(func);
+		rh.valorBonus(func1);
+		rh.valorBonus(func2);
+		System.out.println("----------------------------------------");
 		
 		rh.mostrarBonusTodosFuncionarios();
+		System.out.println("----------------------------------------");
 
 	}
 
