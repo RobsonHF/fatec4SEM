@@ -112,6 +112,18 @@ public class Funcionario {
 	public Long getId() {
 		return id;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Funcionario { \nid=" + id + "\n, name=" + name + "\n, matricula=" + matricula + "\n, salario=" + salario
+				+ "\n, faltasNoAno=" + faltasNoAno + "\n, ultimaNotaAvaliacao=" + ultimaNotaAvaliacao
+				+ "\n, qtdPremiosRecebidosAno=" + qtdPremiosRecebidosAno + "\n, graduado=" + graduado + "\n, nomeFaculdade="
+				+ nomeFaculdade + "\n, nomeCurso=" + nomeCurso + "\n, bonus=" + bonus + "\n}";
+	}
 	
 	
 }

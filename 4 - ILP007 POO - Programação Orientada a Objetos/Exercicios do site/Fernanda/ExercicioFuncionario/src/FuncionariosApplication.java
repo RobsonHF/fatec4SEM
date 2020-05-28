@@ -18,8 +18,6 @@ public class FuncionariosApplication extends Application {
 		telaCadastro = new TelaCadastraFuncionario();
 		Scene scene = new Scene(telaCadastro,500,500);
 		
-		
-		
 		stage.setScene(scene);
 		stage.setTitle("Cadastro de Funcionários");
 		stage.show();

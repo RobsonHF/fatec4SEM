@@ -25,8 +25,6 @@ public class TelaCadastraFuncionario extends GridPane {
 		VBox labels = new VBox();
 		VBox fields = new VBox();
 		
-		
-		
 		HBox fpName 			= new HBox();
 		Label labelNome 		= new Label("Nome:");
 		TextField textNome		= new TextField();
@@ -62,7 +60,6 @@ public class TelaCadastraFuncionario extends GridPane {
 		fpHorario.getChildren().addAll(labelHorario, textHorario);
 		
 		labels.getChildren().addAll(labelNome, labelMatricula, labelAdmissaoFuncionario, dataAdmissao, labelSalario);
-		labels.
 		labels.setPadding(new Insets(20));
 		fields.getChildren().addAll(textNome, textMatricula, labelDemissaoFuncionario, dataDemissao, textSalario, textHorario);
 		fields.setPadding(new Insets(20));
