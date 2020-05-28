@@ -3,6 +3,8 @@ package com.fernanda.service;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
+
 import com.fernanda.entities.Empresa;
 import com.fernanda.entities.Funcionario;
 
@@ -47,6 +49,9 @@ public class RH {
 	}
 	
 	public void removerFuncionario (Funcionario func) {
-		funcionarios.remove(func);
+		//int id = Integer.parseInt(JOptionPane.showInputDialog("Digite o id do funcionário que deseja remover"));
+		funcionarios.remove(func); 
+		System.out.println("funcionário removido com sucesso.");
+			
+		}
 	}
-}
