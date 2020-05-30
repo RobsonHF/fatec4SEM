@@ -1,28 +1,42 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Funcionario;
 
 public class RH {
 
-	private List<Funcionario> funcionarios;
+	private List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	
 	public Double valorBonus(Funcionario funcionario) {
-		if (funcionario.getFaltasNoAno() < 2) return funcionario.getSalario() * 0.3;
-		else if (funcionario.getFaltasNoAno() < 5) return funcionario.getSalario() * 0.15;
-		return funcionario.getSalario() * 0.05;
+		
+		Double bonus;
+		
+		if (funcionario.getFaltasNoAno() < 2) bonus = funcionario.getSalario() * 0.3;
+		else if (funcionario.getFaltasNoAno() < 5) bonus = funcionario.getSalario() * 0.15;
+		else bonus = funcionario.getSalario() * 0.05;
+		
+		if (funcionario.getUltimaNotaAvaliacao() > 7) bonus += funcionario.getSalario() * 0.3;
+		else if (funcionario.getUltimaNotaAvaliacao() <= 7 && funcionario.getUltimaNotaAvaliacao() >= 5) bonus += funcionario.getSalario() * 0.15;
+		else bonus += funcionario.getSalario() * 0.05;
+		
+		return bonus;
 	}
 	
 	public void mostrarTodosOsFuncionarios() {
 		for (Funcionario f : funcionarios) {
-			System.out.println("ID: " + f.getId()
+			System.out.println("\n\nID: " + f.getId()
 							 + "\nNome: " + f.getNome()
 							 + "\nMatrícula: " + f.getMatricula()
-							 + "\nSalario: " + f.getSalario()
-							 + "\nFaltas no ano: " + f.getUltimaNotaAvaliacao()
-							 + "\n");
-			
+							 + "\nSalario: R$" + f.getSalario()
+							 + "\nFaltas no ano: " + f.getFaltasNoAno()
+							 + "\nÚltima nota de avaliação: " + f.getUltimaNotaAvaliacao()
+							 + "\nQuantidade de prêmios recebidos no ano: " + f.getQtdPremiosRecebidosAno()
+							 + "\nGraduado: " + f.isGraduado()
+							 + "\nNome da Faculdade: " + f.getNomeFaculdade()
+							 + "\nNome do curso: " + f.getNomeCurso()
+							 + "\nBônus: R$" + valorBonus(f));
 		}
 	}
 	

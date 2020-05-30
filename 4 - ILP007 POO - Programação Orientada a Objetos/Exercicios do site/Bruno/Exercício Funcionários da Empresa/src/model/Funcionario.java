@@ -55,7 +55,7 @@ public class Funcionario {
 	public void setQtdPremiosRecebidosAno(Integer qtdPremiosRecebidosAno) {
 		this.qtdPremiosRecebidosAno = qtdPremiosRecebidosAno;
 	}
-	public Boolean getGraduado() {
+	public Boolean isGraduado() {
 		return graduado;
 	}
 	public void setGraduado(Boolean graduado) {
