@@ -1,0 +1,40 @@
+- fazer prova que está no ova prova
+root
+senha x
+
+- qndo se cria usuário e não informa o grupo, ele cria automaticamente um grupo principal com características: UID (user id) do usuário -> GID (grupo id) é igual. Quase tudo que foi criado no linux foi criado pelo root, uid 0;
+
+- usuário comum. Se for criado no processo de instalação, vem com UID 1000
+
+========comando su
+- é usado para acessar a conta de outro usuário no shell sem encerrar a sessão do usuário atual
+
+- pra entrar: su nomedousuário
+- pra sair: exit;
+
+===== dá pra desabilitar uma conta de usuário trocando o x da senha por *
+
+===== nologin
+retorna um texto. se o /sbin/nologin é definido como o shell, o usuário com esse shell for efetuar login não vai dar;
+
+====== /etc/shadow
+- possui dados de conta de usuário
+- dados desmembrados para dar liberdade para visualização do arquivo /etc/passwd
+
+========= sudo
+se vc não colocar o usuário na frente com o -u, ele subentende que vc quer o root.
+
+sudo -u professor cat /etc/passwd
+
+ou seja, aqui vai se transformar momentaneamente em professor. 
+
+se fizer apenas sudo cat /etc/passwd 
+vc quer entrar como root apenas
+
+======
+pegar o debian 9
+- instalar o sudo nele
+- ou baixa um cd live do debian e faz uma instalação
+- ou já tem ou baixxa esse aqruivo do num 3 que ele mandou no chat
+- configurar o sudoers
+
