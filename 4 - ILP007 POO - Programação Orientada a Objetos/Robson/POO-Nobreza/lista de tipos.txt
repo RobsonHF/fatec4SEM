@@ -1,0 +1,11 @@
+- Nobre: classe
+- Conde: classe
+- Principe: classe
+- Cavaleiro: interface
+- Rainha: classe
+- Diplomata: interface
+- Conselheiro: classe
+- Fiel: interface
+- Padre: classe
+- Bispo: classe
+- Soldado: classe
